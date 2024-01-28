@@ -2,13 +2,15 @@
 
 # EXERCISE 2 - Python Program that emulates the high-street mechanism for checking a PIN.
 # prompt user to enter pin
-supplied_pin = int(input("Enter your PIN: "))
-# def the correct pin
 desired_pin = 2489
 # def max attempts
 max_attempts = 3
 # initialise num of log in attempts
 attempts = 0
+supplied_pin = int(input("Enter your PIN: "))
+# def the correct pin
+
+
 # write a password number which is hard-coded by me
 while attempts < max_attempts:
     incorrect_pin = int(input("Incorrect PIN. Enter your PIN again: "))
