@@ -57,3 +57,28 @@ else:
 #         #
 #         count += 1
 #         # use plus-equal operator, same as count = count + 1
+
+# # ////// Exercise 10, Part 3: //////
+#
+# # getpass module - securely input passwords from user without input showing on screen
+# import getpass
+#
+# correct_pin = 1984
+# count = 0
+#
+# for i in range(3):
+#     supplied_pin = int(getpass.getpass("Enter your PIN: "))
+#     count += 1
+#     if supplied_pin == correct_pin:
+#         print(f"Correct - attempt {count} of 3")
+#         break
+#     if supplied_pin != correct_pin:
+#         print(f"Incorrect - attempt {count} of 3")
+# else:
+#    print(f"You've exceeded {count} attempts. Please speak to your branch manager!")
+#
+# # I get the following error message:
+# # /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/getpass.py:91: GetPassWarning: Can not control echo on the terminal
+# #   passwd = fallback_getpass(prompt, stream)
+# # Warning: Password input may be echoed.
+# # Enter your pin:

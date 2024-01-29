@@ -39,23 +39,25 @@ filenames = glob.glob(pattern)
 
 # TODO: use os.path.getsize to find each file's size
 for filename in filenames:
-    size = os.path.getsize(filename)
+    # updated original code to check if it is a file
+    if os.path.isfile(filename):
+        size = os.path.getsize(filename)
 # os.path.getsize() function returns the size in bytes of the path (file) name passed to it
 # loop through each file obtained using glob.glob() function using this function to get their sizes
 
 # TODO: Add a test to only display files that are not zero length
-    if size > 0:
+        if size > 0:
         # use a conditonal statement to check if file size is greater than 0
 
 # TODO: Remove the leading directory name(s) from each filename before you print it -
 # using os.path.basename()
-        print(os.path.basename(filename))
+            print(os.path.basename(filename))
 # os.path.basename() - gets basename of pathname (last part of path) which strips out directory part of file path, leaving only filename
 # could do print(filename) instead and it would also print out the file path
 #       print(filename)
 
 
-# ////// Code in full //////
+# ////// Original Code in full //////
 
 # if sys.platform == 'win32':
 #     hdir = os.environ['HOMEPATH']
