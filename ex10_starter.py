@@ -67,8 +67,11 @@ basename = os.path.basename(filepath)
 print(basename)
 
 
-# ////// Bek's Code in full //////
-
+# # ////// Bek's Updated Code in full //////
+#
+# # code below is fixed and now shows any files with content directly in the home directory
+# # think it should be in current directory?
+#
 # if sys.platform == 'win32':
 #     hdir = os.environ['HOMEPATH']
 # else:
@@ -79,6 +82,8 @@ print(basename)
 # filenames = glob.glob(pattern)
 #
 # for filename in filenames:
-#     size = os.path.getsize(filename)
-#     if size > 0:
-#         print(os.path.basename(filename))
+#     # added code below to check if it is a file
+#     if os.path.isfile(filename):
+#         size = os.path.getsize(filename)
+#         if size > 0:
+#             print(os.path.basename(filename))
