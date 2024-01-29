@@ -11,20 +11,23 @@ if sys.platform == 'win32':
     hdir = os.environ['HOMEPATH']
 else:
     hdir = os.environ['HOME']
-# sys.platform determines the operating system on which Python interpreter is running and returns a string representing the name eg.
+# sys.platform determines the operating system on which Python interpreter is running and returns a string rep the name
 # Windows: 'win32'
 # Linux: 'linux' or 'linux2
 # MacOS: 'darwin'
 # Unix: FreeBSD - 'freebsd', Solaris - 'sunos5' etc
 # hdir - variable holds path to home directory of user
-# use if/else statement to determine the users directory
+# use if/else conditional statements to determine the users directory
 # if - Windows first as uses a particular path separator
 # else - all other systems as there are numerous that use the same path separator that is different to Windows
 
 # Construct a portable wildcard pattern
+# wild card is a symbol that can be used in place of or in addition to one or more characters
+#
 pattern = os.path.join(hdir, '*')
 
 # TODO: Use the glob.glob() function to obtain the list of filenames
+
 filenames = glob.glob(pattern)
 # glob.glob returns a list of files that matches the path specified in the function argument
 # relative path to search all text files
