@@ -72,18 +72,26 @@ print(basename)
 # # code below is fixed and now shows any files with content directly in the home directory
 # # think it should be in current directory?
 #
+# # check for OS using if/else statement
+# # 'HOME' and 'HOMEPATH' are environment variables - path points to users home directory
 # if sys.platform == 'win32':
 #     hdir = os.environ['HOMEPATH']
 # else:
 #     hdir = os.environ['HOME']
 #
+# # create search pattern to find files. '*' wildcard means "anything" to match any file/directory in user home directory
 # pattern = os.path.join(hdir,'*')
 #
+# # find files and directories that match pattern. Returns list of paths
 # filenames = glob.glob(pattern)
 #
+# # use for loop to iterate over each file/directory found by glob.glob()
 # for filename in filenames:
-#     # added code below to check if it is a file
+#     # added code below to check if path is a file rather than a directory
 #     if os.path.isfile(filename):
+#         # if it is a file get the size
 #         size = os.path.getsize(filename)
+#         # if size greater than 0 bytes print name of file
 #         if size > 0:
+#             # print just the file name not the full path
 #             print(os.path.basename(filename))
