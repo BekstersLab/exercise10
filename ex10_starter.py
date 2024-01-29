@@ -1,6 +1,3 @@
-# Code below will list all non-empty files in the user's home directory, displaying their names without full path
-# eg. Music, Pictures, Desktop, Libray, Public, Movies, Applications, Documents, Downloads
-
 # import built in modules for file operations - system, global, operating system
 import sys, glob, os
 
@@ -21,6 +18,14 @@ else:
 
 # Construct a portable wildcard pattern
 pattern = os.path.join(hdir, '*')
+# os.path.join() function - concatenates paths for os running python (Windows or Linux)
+# uses correct path separator for os eg '/' on Unix/Linux/macOS and '\' on Windows
+# '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
+# SO... above code joins home directory path with wildcard character '*' to create a pattern that matches ...
+# all files and directories inside the home directory
+# Output of code:
+# \C:\Users\username\* - windows
+# /home/username/* - unix/linux/macOS
 
 # TODO: Use the glob.glob() function to obtain the list of filenames
 filenames = glob.glob(pattern)
@@ -31,16 +36,6 @@ filenames = glob.glob(pattern)
 print('Inside current directory')
 for item in glob.glob("*"):
     print(item)
-# TO DO...
-
-# os.path.join() function - concatenates paths for os running python (Windows or Linux)
-# uses correct path separator for os eg '/' on Unix/Linux/macOS and '\' on Windows
-# '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
-# SO... above code joins home directory path with wildcard character '*' to create a pattern that matches ...
-# all files and directories inside the home directory
-# Output of code:
-# \C:\Users\username\* - windows
-# /home/username/* - unix/linux/macOS
 
 # TODO: use os.path.getsize to find each file's size
 #  os.path.getsize(filepath) is used to get the size of the file
@@ -72,7 +67,7 @@ basename = os.path.basename(filepath)
 print(basename)
 
 
-# ////// Code in full //////
+# ////// Bek's Code in full //////
 
 # if sys.platform == 'win32':
 #     hdir = os.environ['HOMEPATH']
