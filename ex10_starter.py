@@ -2,7 +2,9 @@
 # eg. Music, Pictures, Desktop, Libray, Public, Movies, Applications, Documents, Downloads
 
 # import built in modules for file operations - system, global, operating system
-import sys, glob, os
+import glob
+import sys
+import os
 
 # EXERCISE 1a: Get the directory name
 if sys.platform == 'win32':
