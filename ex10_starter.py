@@ -19,16 +19,7 @@ else:
 # else - all other systems as there are numerous that use the same path separator that is different to Windows
 
 # Construct a portable wildcard pattern
-# wild card is a symbol that can be used in place of or in addition to one or more characters
-
 pattern = os.path.join(hdir, '*')
-# SO... above code joins home directory path with wildcard character '*' to create a pattern that matches ...
-# all files and directories inside the home directory
-# os.path.join() function - concatenates paths for os running python (Windows or Linux)
-# uses correct path separator for os eg '/' on Unix/Linux/macOS and '\' on Windows
-# '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
-
-
 # os.path.join() function - concatenates paths for os running python (Windows or Linux)
 # uses correct path separator for os eg '/' on Unix/Linux/macOS and '\' on Windows
 # '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
@@ -40,22 +31,13 @@ pattern = os.path.join(hdir, '*')
 
 
 # TODO: Use the glob.glob() function to obtain the list of filenames
-
 filenames = glob.glob(pattern)
 # glob.glob returns a list of files that matches the path specified in the function argument
 # relative path to search all text files
 # uses wildcard character * to match all filepath to the current file
 
 
-# Output of code:
-# \C:\Users\username\* - windows
-# /home/username/* - unix/linux/macOS
-
-print('Inside current directory')
-for item in glob.glob("*"):
-    print(item)
-
-# print function used to display string object in the console.
+# print function used to display string argument in the console.
 print('Inside current directory')
 # for loops iterate through a sequence of each file found in the specified glob.glob module and function
 for files in glob.glob("*"):
