@@ -1,6 +1,3 @@
-# Code below will list all non-empty files in the user's home directory, displaying their names without full path
-# eg. Music, Pictures, Desktop, Libray, Public, Movies, Applications, Documents, Downloads
-
 # import built in modules for file operations - system, global, operating system
 import glob
 import sys
@@ -32,6 +29,16 @@ pattern = os.path.join(hdir, '*')
 # '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
 
 
+# os.path.join() function - concatenates paths for os running python (Windows or Linux)
+# uses correct path separator for os eg '/' on Unix/Linux/macOS and '\' on Windows
+# '*' - wildcard character - matches any sequence of characters in a filename. * means ALL
+# SO... above code joins home directory path with wildcard character '*' to create a pattern that matches ...
+# all files and directories inside the home directory
+# Output of code:
+# \C:\Users\username\* - windows
+# /home/username/* - unix/linux/macOS
+
+
 # TODO: Use the glob.glob() function to obtain the list of filenames
 
 filenames = glob.glob(pattern)
@@ -39,9 +46,14 @@ filenames = glob.glob(pattern)
 # relative path to search all text files
 # uses wildcard character * to match all filepath to the current file
 
+
 # Output of code:
 # \C:\Users\username\* - windows
 # /home/username/* - unix/linux/macOS
+
+print('Inside current directory')
+for item in glob.glob("*"):
+    print(item)
 
 # print function used to display string object in the console.
 print('Inside current directory')
@@ -86,18 +98,31 @@ basename = os.path.basename(filepath)
 print(basename)
 
 
-# ////// Code in full //////
-
+# # ////// Bek's Updated Code in full //////
+#
+# # code below is fixed and now shows any files with content directly in the home directory
+# # think it should be in current directory?
+#
+# # check for OS using if/else statement
+# # 'HOME' and 'HOMEPATH' are environment variables - path points to users home directory
 # if sys.platform == 'win32':
 #     hdir = os.environ['HOMEPATH']
 # else:
 #     hdir = os.environ['HOME']
 #
+# # create search pattern to find files. '*' wildcard means "anything" to match any file/directory in user home directory
 # pattern = os.path.join(hdir,'*')
 #
+# # find files and directories that match pattern. Returns list of paths
 # filenames = glob.glob(pattern)
 #
+# # use for loop to iterate over each file/directory found by glob.glob()
 # for filename in filenames:
-#     size = os.path.getsize(filename)
-#     if size > 0:
-#         print(os.path.basename(filename))
+#     # added code below to check if path is a file rather than a directory
+#     if os.path.isfile(filename):
+#         # if it is a file get the size
+#         size = os.path.getsize(filename)
+#         # if size greater than 0 bytes print name of file
+#         if size > 0:
+#             # print just the file name not the full path
+#             print(os.path.basename(filename))
