@@ -9,31 +9,37 @@ max_attempts = 3
 # initialise num of log in attempts
 attempts = 0
 
-# write a password number which is hard-coded by me
-# write about the while loop and why linked to attempts and max attempts
+# while loop is used to execute a set of statements as long it is true
+# while attempts is less than three from (0-3)
 while attempts < max_attempts:
-    # prompt user to enter pin
+    # input prompts the user to enter pin as long
+    # int changes string values into integer and restricts user to only use integer values
     supplied_pin = int(input("Enter your PIN: "))
-    # define input as integer or there is ValueError
+    # If user input a string = ValueError
 
+    # indented as the condition is a set of statement within a loop
     # condition: if user input a pin that equals to desired pin
     if supplied_pin == desired_pin:
         # print the below string object in console - PIN successful
         print('PIN successful')
-        # why was a break used?
+        # break t allows you to exit the loop
         break
 
-    # else statement - write about it
+    # else used to catch the amount of attempts the user has left
     else:
-        # write about += 1
+        # increment attempt by the value 1
+        # attempts = attempts + 1
+        # this increases the amount of the attempts by 1
         attempts += 1
-        # what does this operation fo?
+        # to count the amount of attempts user has left
+        # everytime a user makes an attempt to input PIN, it takes 1 away from 3 which is the value of max attempts
         remaining_attempts = max_attempts - attempts
-        # prints message of the remaining attempts left
+        # prints message of the remaining attempts left using f string
         print(f"{remaining_attempts} attempts left")
 
-# final conditional statement explain quickly
+# conditional statement: if the attempts is equal to max attempts is TRUE
 if attempts == max_attempts:
+    # display string object to user 
     print('3 UNSUCCESSFUL ATTEMPTS. ACCOUNT LOCKED!')
 
 # //////// FOR LOOP ////////

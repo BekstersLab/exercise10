@@ -37,7 +37,7 @@ filenames = glob.glob(pattern)
 # uses wildcard character * to match all filepath to the current file
 
 
-# print function used to display string argument in the console.
+# print function used to display string object in the console.
 print('Inside current directory')
 # for loops iterate through a sequence of each file found in the specified glob.glob module and function
 for files in glob.glob("*"):
@@ -48,35 +48,43 @@ for files in glob.glob("*"):
 # TODO: use os.path.getsize to find each file's size
 #  os.path.getsize(filepath) is used to get the size of the file
 
-# Created a list called file paths to define the files which want to use the os modul function
+# A list called file_paths with names of files in ex10
 file_paths = ['ex10_starter.py', '.gitignore', 'README.md']
 
 # for loop used through iterable object (like list, tuple, set etc.) in file_paths
-# list specified as file_path as necessary to have in
+# list specified as file_path as necessary to have in - finish sentence
 for file_path in file_paths:
-    # we use the os.path.getsize method to find the size of the file
+    # os.path.getsize method is used to find the size of the file
     size = os.path.getsize(file_path)
     # print('Size of files:', file_path, size)
-    # print with f string the size of the file on the console
+    # print with f string to embed expression {file_path} into string literal
+    # prints out the size of each filename
     print(f"Size of '{file_path}':", size)
 
 # TODO: Add a test to only display files that are not zero length
 # file_paths = ['ex10_starter.py', '.gitignore', 'README.md']
 
-# for loop to iterate a list because if not, it only counts
+# use for loop to iterate the list in file paths, it only counts ex10_starter
 for file_path in file_paths:
-    # write the function of this module != not equal to zero
+    # added if conditional statement: to check if the size of a specified file !=(is not) equal to zero
+    # != is a boolean operator - true or false
+    # os.path.get is a method that checks the size of a specified path or file
     if os.path.getsize(file_path) != 0:
-        # write about print function with f-string
+        # print is function used to display the findings in the console
+        # used f string to embed each file path and display result of the conditional statement
+        # only prints if condition is true - more than zero
         print(f'{file_path} is not equal to zero')
         # issue - there is no end to indented line
 
 # TODO: Remove the leading directory name(s) from each filename before you print it -
 # using os.path.basename()
 
-# added file path with directory name
+# Defined variable with a file path to ex_10 file
 filepath = "C:/code/python_homework/exercise10/ex10_starter.py"
+# uses operating system module functions: path and basename and uses file path as a parameter
+# basename function takes the pathname pointed to by path and returns the final component of the path
 basename = os.path.basename(filepath)
+# displays the basename on the console
 print(basename)
 
 
