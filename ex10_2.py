@@ -1,30 +1,38 @@
 # //////// WHILE LOOP ////////
 
 # EXERCISE 2 - Python Program that emulates the high-street mechanism for checking a PIN.
-# prompt user to enter pin
+
 # def the correct pin
 desired_pin = 2489
 # def max attempts
 max_attempts = 3
 # initialise num of log in attempts
 attempts = 0
-# def the correct pin
-
 
 # write a password number which is hard-coded by me
+# write about the while loop and why linked to attempts and max attempts
 while attempts < max_attempts:
+    # prompt user to enter pin
     supplied_pin = int(input("Enter your PIN: "))
-    # incorrect_pin = int(input("Incorrect PIN. Enter your PIN again: "))
+    # define input as integer or there is ValueError
 
+    # condition: if user input a pin that equals to desired pin
     if supplied_pin == desired_pin:
+        # print the below string object in console - PIN successful
         print('PIN successful')
+        # why was a break used?
         break
 
+    # else statement - write about it
     else:
+        # write about += 1
         attempts += 1
+        # what does this operation fo?
         remaining_attempts = max_attempts - attempts
+        # prints message of the remaining attempts left
         print(f"{remaining_attempts} attempts left")
 
+# final conditional statement explain quickly
 if attempts == max_attempts:
     print('3 UNSUCCESSFUL ATTEMPTS. ACCOUNT LOCKED!')
 
